@@ -1,0 +1,165 @@
+{
+  "version": "0.1.0",
+  "questions": [
+    {
+      "id": "q1_domain",
+      "prompt": "Is this mainly about the work itself, or about people/relationships around it?",
+      "options": [
+        { "label": "The work itself", "shifts": { "workload_volume": 2, "task_ambiguity": 2, "tooling_friction": 1, "tech_debt": 1, "process_bottleneck": 1, "ownership_gap": 1, "knowledge_silo": 1, "boundary_violation": 1, "skill_mismatch": 1, "career_stagnation": 1, "autonomy_loss": 1 } },
+        { "label": "People/relationships", "shifts": { "coworker_friction": 2, "manager_relationship": 2, "recognition_gap": 1 } }
+      ]
+    },
+    {
+      "id": "q2_work_split",
+      "prompt": "When you think about 'the work,' is the pain more about the amount or pace of it, or about the systems and process surrounding it?",
+      "options": [
+        { "label": "Amount or pace", "shifts": { "workload_volume": 2, "boundary_violation": 1, "task_ambiguity": 1 } },
+        { "label": "Systems or process", "shifts": { "tooling_friction": 2, "tech_debt": 2, "process_bottleneck": 2, "ownership_gap": 1, "knowledge_silo": 1 } }
+      ]
+    },
+    {
+      "id": "q3_clarity",
+      "prompt": "Is it clear what 'done' looks like for your work, or does the target keep shifting or stay undefined?",
+      "options": [
+        { "label": "Pretty clear, I just don't have the time or capacity", "shifts": { "workload_volume": 2, "boundary_violation": 1 } },
+        { "label": "Unclear, or it keeps changing", "shifts": { "task_ambiguity": 3 } }
+      ]
+    },
+    {
+      "id": "q4_tools_vs_code",
+      "prompt": "Are your day-to-day tools or process actually broken, or fine, but the underlying code/system is fragile?",
+      "options": [
+        { "label": "Tools or process are broken", "shifts": { "tooling_friction": 3, "process_bottleneck": 1 } },
+        { "label": "Underlying code/system is fragile", "shifts": { "tech_debt": 3, "ownership_gap": 1 } }
+      ]
+    },
+    {
+      "id": "q5_bottleneck",
+      "prompt": "Is the blocker more 'things move too slowly through review/deploy,' or 'nobody really knows how this part works'?",
+      "options": [
+        { "label": "Slow review/deploy", "shifts": { "process_bottleneck": 3 } },
+        { "label": "Nobody really knows how it works", "shifts": { "knowledge_silo": 3, "ownership_gap": 2 } }
+      ]
+    },
+    {
+      "id": "q6_ownership",
+      "prompt": "When something breaks in this area, is it clear whose job it is to fix it?",
+      "options": [
+        { "label": "Yes, there's a clear owner", "shifts": { "tooling_friction": 1, "process_bottleneck": 1 } },
+        { "label": "No, it's unclear or nobody owns it", "shifts": { "ownership_gap": 3, "knowledge_silo": 1 } }
+      ]
+    },
+    {
+      "id": "q7_boundary",
+      "prompt": "Is this bleeding into your personal time or energy outside work hours?",
+      "options": [
+        { "label": "Yes, regularly", "shifts": { "boundary_violation": 3, "workload_volume": 1 } },
+        { "label": "No, it stays contained", "shifts": { "workload_volume": 1, "task_ambiguity": 1 } }
+      ]
+    },
+    {
+      "id": "q8_skill_fit",
+      "prompt": "Do you feel equipped and skilled for what's being asked of you?",
+      "options": [
+        { "label": "Not really, it's outside my skillset", "shifts": { "skill_mismatch": 3 } },
+        { "label": "I have the skills, just not the time or support", "shifts": { "workload_volume": 1, "autonomy_loss": 1 } }
+      ]
+    },
+    {
+      "id": "q9_growth",
+      "prompt": "Do you see a real path to grow or take on more scope here?",
+      "options": [
+        { "label": "No clear path", "shifts": { "career_stagnation": 3 } },
+        { "label": "A path exists, that's not the issue", "shifts": { "recognition_gap": 1 } }
+      ]
+    },
+    {
+      "id": "q10_autonomy",
+      "prompt": "Do you feel micromanaged or unable to make your own calls?",
+      "options": [
+        { "label": "Yes, closely controlled", "shifts": { "autonomy_loss": 3 } },
+        { "label": "No, I have freedom to decide", "shifts": { "recognition_gap": 1, "task_ambiguity": 1 } }
+      ]
+    },
+    {
+      "id": "q11_people_split",
+      "prompt": "Is the friction mostly with one specific person, or a broader pattern across your manager, team, or org?",
+      "options": [
+        { "label": "One specific person", "shifts": { "coworker_friction": 3 } },
+        { "label": "A broader pattern", "shifts": { "manager_relationship": 2, "recognition_gap": 1 } }
+      ]
+    },
+    {
+      "id": "q12_manager_support",
+      "prompt": "Does your manager give you support or feedback when you need it?",
+      "options": [
+        { "label": "Rarely, or not really", "shifts": { "manager_relationship": 3 } },
+        { "label": "Yes, that part is fine", "shifts": { "coworker_friction": 1, "recognition_gap": 1 } }
+      ]
+    },
+    {
+      "id": "q13_recognition",
+      "prompt": "Do you feel your contributions are seen and acknowledged?",
+      "options": [
+        { "label": "No, it feels invisible", "shifts": { "recognition_gap": 3 } },
+        { "label": "Yes, that part is fine", "shifts": { "manager_relationship": 1 } }
+      ]
+    },
+    {
+      "id": "q14_coworker_nature",
+      "prompt": "Is the coworker friction more about how work or credit gets divided, or a personal/style clash?",
+      "options": [
+        { "label": "How work or credit is divided", "shifts": { "coworker_friction": 2, "recognition_gap": 1 } },
+        { "label": "Personal or style clash", "shifts": { "coworker_friction": 3 } }
+      ]
+    },
+    {
+      "id": "q15_duration",
+      "prompt": "Has the workload or pace been unsustainable for weeks, or is this a recent spike?",
+      "options": [
+        { "label": "Ongoing for a while now", "shifts": { "workload_volume": 2, "boundary_violation": 1 } },
+        { "label": "A recent spike", "shifts": { "workload_volume": 1, "task_ambiguity": 1 } }
+      ]
+    },
+    {
+      "id": "q16_compensation",
+      "prompt": "Is part of this about pay or advancement feeling stalled?",
+      "options": [
+        { "label": "Yes", "shifts": { "career_stagnation": 2, "recognition_gap": 1 } },
+        { "label": "No, it's not about pay or title", "shifts": { "autonomy_loss": 1 } }
+      ]
+    },
+    {
+      "id": "q17_bus_factor",
+      "prompt": "If you had to step away for two weeks, would things fall apart without you?",
+      "options": [
+        { "label": "Yes, I'm the only one who knows this", "shifts": { "knowledge_silo": 3, "ownership_gap": 1 } },
+        { "label": "No, others could cover", "shifts": { "process_bottleneck": 1 } }
+      ]
+    },
+    {
+      "id": "q18_techdebt_age",
+      "prompt": "Is the code/system causing pain old and rarely touched, or actively being changed but still breaking?",
+      "options": [
+        { "label": "Old, rarely touched, scary to change", "shifts": { "tech_debt": 3 } },
+        { "label": "Actively changed, still breaks", "shifts": { "tech_debt": 1, "process_bottleneck": 2 } }
+      ]
+    },
+    {
+      "id": "q19_process_speed",
+      "prompt": "Does getting a change reviewed or shipped take much longer than doing the work itself?",
+      "options": [
+        { "label": "Yes, review/deploy is the real bottleneck", "shifts": { "process_bottleneck": 3 } },
+        { "label": "No, that part is fine", "shifts": { "tooling_friction": 1 } }
+      ]
+    },
+    {
+      "id": "q20_severity",
+      "prompt": "How long has this specific issue been bothering you?",
+      "options": [
+        { "label": "A few weeks", "shifts": { "workload_volume": 1, "task_ambiguity": 1 } },
+        { "label": "Months or longer", "shifts": { "career_stagnation": 1, "tech_debt": 1, "knowledge_silo": 1 } }
+      ]
+    }
+  ]
+}

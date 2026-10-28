@@ -1,0 +1,108 @@
+{
+  "version": "0.1.0",
+  "source": "JD-R model, Herzberg two-factor theory, Maslach Burnout Inventory dimensions; validated against IBM HR Analytics Attrition dataset (see ANALYSIS.md)",
+  "categories": [
+    {
+      "id": "workload_volume",
+      "label": "Too much work, not enough time",
+      "framework": { "model": "JD-R", "branch": "demand" },
+      "data_signal": { "dataset": "ibm_hr_attrition", "variable": "OverTime", "correlation": 0.246, "strength": "strong" },
+      "suggested_action": "Audit current workload against team capacity; renegotiate scope or timeline with your manager before taking on new commitments."
+    },
+    {
+      "id": "task_ambiguity",
+      "label": "Unclear expectations or scope",
+      "framework": { "model": "JD-R", "branch": "demand" },
+      "data_signal": null,
+      "suggested_action": "Request a written scope/definition-of-done from whoever assigned the work before continuing further."
+    },
+    {
+      "id": "coworker_friction",
+      "label": "Friction with a specific collaborator",
+      "framework": { "model": "JD-R", "branch": "resource", "sub": "social support" },
+      "data_signal": { "dataset": "ibm_hr_attrition", "variable": "RelationshipSatisfaction", "correlation": -0.046, "strength": "weak" },
+      "suggested_action": "Have a direct 1:1 conversation with the specific person about the friction before escalating; involve a manager only if that doesn't resolve it."
+    },
+    {
+      "id": "manager_relationship",
+      "label": "Manager relationship or support gap",
+      "framework": { "model": "JD-R", "branch": "resource", "sub": "social support" },
+      "data_signal": { "dataset": "ibm_hr_attrition", "variable": "YearsWithCurrManager", "correlation": -0.156, "strength": "moderate" },
+      "suggested_action": "Bring specific, concrete asks (e.g. more frequent 1:1s, clearer feedback) to your manager rather than a general complaint."
+    },
+    {
+      "id": "recognition_gap",
+      "label": "Lack of recognition or visibility",
+      "framework": { "model": "Herzberg", "branch": "motivator" },
+      "data_signal": { "dataset": "ibm_hr_attrition", "variable": "JobSatisfaction", "correlation": -0.104, "strength": "weak" },
+      "suggested_action": "Start documenting your contributions and proactively share them in team/manager updates rather than assuming they'll be noticed."
+    },
+    {
+      "id": "career_stagnation",
+      "label": "No growth path or skill development",
+      "framework": { "model": "Herzberg", "branch": "motivator", "sub": "growth" },
+      "data_signal": { "dataset": "ibm_hr_attrition", "variable": "JobLevel,TotalWorkingYears,MonthlyIncome,StockOptionLevel", "correlation": -0.16, "strength": "strong", "note": "cluster of tenure/level/comp variables moves together; YearsSinceLastPromotion itself is weak (r=-0.033), so questions avoid literal promotion-timing framing" },
+      "suggested_action": "Ask your manager directly what a promotion or scope increase would require, and get it in writing as concrete milestones."
+    },
+    {
+      "id": "autonomy_loss",
+      "label": "Micromanagement / lack of autonomy",
+      "framework": { "model": "JD-R", "branch": "resource", "sub": "autonomy" },
+      "data_signal": { "dataset": "ibm_hr_attrition", "variable": "JobInvolvement", "correlation": -0.13, "strength": "moderate" },
+      "suggested_action": "Propose a specific area where you take full ownership with periodic check-ins instead of step-by-step oversight, and track outcomes to build trust."
+    },
+    {
+      "id": "tooling_friction",
+      "label": "Broken or frustrating tools/process",
+      "framework": { "model": "JD-R", "branch": "demand" },
+      "data_signal": { "dataset": "ibm_hr_attrition", "variable": "EnvironmentSatisfaction", "correlation": -0.103, "strength": "weak", "note": "proxy only; IBM dataset has no direct tooling variable" },
+      "suggested_action": "File a specific ticket describing the friction and its time cost, and flag it in a team retro so it's prioritized against feature work."
+    },
+    {
+      "id": "boundary_violation",
+      "label": "Work-life boundary being crossed",
+      "framework": { "model": "JD-R", "branch": "demand" },
+      "data_signal": { "dataset": "ibm_hr_attrition", "variable": "WorkLifeBalance,OverTime", "correlation": -0.064, "strength": "moderate", "note": "shares strongest overall signal (OverTime) with workload_volume" },
+      "suggested_action": "Set an explicit end-of-day/weekend boundary and name it out loud to your manager or team, rather than silently absorbing the overflow."
+    },
+    {
+      "id": "skill_mismatch",
+      "label": "Role doesn't match current skills",
+      "framework": { "model": "Herzberg", "branch": "motivator" },
+      "data_signal": { "dataset": "ibm_hr_attrition", "variable": "TrainingTimesLastYear", "correlation": -0.06, "strength": "weak", "note": "training count is a weak proxy; questions framed around perceived fit, not training frequency" },
+      "suggested_action": "Identify the specific skill gap and ask for either targeted training or a temporary pairing with someone who has it, rather than absorbing the mismatch silently."
+    },
+    {
+      "id": "tech_debt",
+      "label": "Accumulated technical debt slowing delivery",
+      "framework": { "model": "JD-R", "branch": "demand" },
+      "data_signal": null,
+      "note": "engineering-specific; not represented in general-workforce HR dataset, theory-grounded only until repo-aware mode (Step 4) adds commit/ownership signals",
+      "suggested_action": "Schedule a scoped refactor spike for the affected module and pair at least two engineers on it before further feature work lands there."
+    },
+    {
+      "id": "ownership_gap",
+      "label": "No clear owner for a critical system/module",
+      "framework": { "model": "JD-R", "branch": "demand" },
+      "data_signal": null,
+      "note": "engineering-specific; validated in Step 4 via repo contributor-count signals, not HR data",
+      "suggested_action": "Assign an explicit owner for this system/module and record it somewhere discoverable (README, team wiki, on-call rotation)."
+    },
+    {
+      "id": "process_bottleneck",
+      "label": "Review/deploy process is the actual blocker",
+      "framework": { "model": "JD-R", "branch": "demand" },
+      "data_signal": null,
+      "note": "engineering-specific; validated in Step 4 via repo PR/issue-age signals, not HR data",
+      "suggested_action": "Measure time-in-review/deploy for recent changes and raise the specific stage causing delay in a process retro, with data attached."
+    },
+    {
+      "id": "knowledge_silo",
+      "label": "Critical knowledge lives in one person's head",
+      "framework": { "model": "JD-R", "branch": "demand" },
+      "data_signal": null,
+      "note": "engineering-specific; validated in Step 4 via repo contributor-count signals, not HR data",
+      "suggested_action": "Schedule a knowledge-transfer session and require documentation or a second reviewer on that person's changes going forward."
+    }
+  ]
+}
